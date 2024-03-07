@@ -1,0 +1,47 @@
+body {
+    text-align: center;
+    padding-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+#heart {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#buttonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; /* Butonlar arası boşluk ekler */
+    transition: transform 0.3s ease;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+#yesButton {
+    background-color: #4CAF50; /* Yeşil renk */
+}
+
+#noButton {
+    background-color: #f44336; /* Kırmızı renk */
+}
+
+#extraMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+    min-height: 24px; /* Alanı korumak için */
+}
