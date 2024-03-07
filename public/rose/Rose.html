@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="theme-color" content="#FFF" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+        <title>520 Rose~</title>
+        <meta name="title" content="520 Rosse" />
+        <!-- <link type="text/css" rel="stylesheet" href="./style.css"> -->
+
+        <style>
+         :root {
+             --dark-green: #066406;
+             --light-green: #338f37;
+             --light-pink: #dc4c70;
+             --medium-pink: #d52d58;
+             --dark-pink: #ca2850;
+             --light-brown: #ede3d2;
+             --dark-brown: #73592e;
+             --text-code: #edecee;
+             --bg-code: #333;
+             --rose-height: 350px;
+             --rose-width: 200px;
+         }
+         @font-face {
+             font-family: 'JetBrains Mono';
+             src: url('https://gw.alipayobjects.com/os/k/app/JetBrainsMono-Regular.ttf') format('truetype');
+         }
+
+         * {
+             font-family: JetBrains Mono, SF Mono, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+         }
+
+         body {
+             height: 100vh;
+             color: var(--light-pink);
+             background: var(--bg-code);
+             margin: 0;
+             font-size: 14px;
+             line-height: 1.4;
+         }
+
+
+         pre em {
+             font-style: normal;
+         }
+
+         .selector,
+         .selector .key {
+             color: var(--medium-pink);
+         }
+
+         .key {
+             color: var(--text-code);
+         }
+
+         .comment {
+             color: var(--light-pink);
+         }
+
+         .value {
+             color: var(--dark-browrn)
+         }
+
+
+         .dead-petals > div {
+             position: absolute;
+             height: 10px;
+             width: 20px;
+             top: 25%;
+             border-radius: 0 20px;
+             transition-timing-function: ease-out;
+         }
+
+         @keyframes rotate-petal {
+             0% {
+                 transform: rotate(-45deg) translateY(0%);
+                 top: 20%;
+             }
+             50% {
+                 transform: rotate(45deg) translateY(-50%);
+                 top: 50%;
+             }
+             100% {
+                 transform: rotate(-45deg) translateY(0%);
+                 top: 90%;
+             }
+         }
+        </style>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="final-message" style="display:none; color:white; position:absolute; top:70vh; left:50%; transform:translateX(-50%); text-align:center;">
+            Senin gibi güzel bir kız için az bile bu ama şu an da bununla yetinmek zorundayım 😊😊
+        </div>
+        <script>
+         let styles = `\
+
+/*
+* Merhaba Fatma 
+* Bunu senin için hazırladım
+* Lütfen sonuna kadar izler misin ?
+*/
+
+pre {
+   color: #fff;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   box-sizing: border-box;
+   padding: 24px 16px;
+   margin-top: 0;
+   overflow-y: auto;
+   transition: all 500ms;
+}
+
+pre {
+   top: 60vh;
+   height: 40vh;
+}
+
+.container {
+   position: absolute;
+   top: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 60vh;
+   margin: auto;
+   background: var(--light-brown);
+   overflow: hidden;
+}
+
+.rose {
+   margin: auto;
+   height: var(--rose-height);
+   width: 200px;
+   position: relative;
+}
+.stem {
+   position: absolute;
+   height: 0;
+   width: 6px;
+   background: var(--dark-green);
+   bottom: 10%;
+   left: 50%;
+   margin-left: -3px;
+   border-radius: 0 0 3px 3px;
+   transition: height 1s;
+}
+
+.stem {
+   height: 200px;
+}
+
+.thorns > div {
+   width: 0;
+   border-top: 5px solid transparent;
+   border-bottom: 5px solid transparent;
+   position: absolute;
+   transition: all 0.2s;
+}
+
+
+.thorns > div:first-child {
+   left: 44%;
+   top: 50%;
+   border-right: 10px solid var(--dark-green);
+}
+
+.thorns > div:nth-child(2) {
+   left: 51%;
+   top: 62%;
+   border-left: 10px solid var(--dark-green);
+}
+
+.thorns > div:nth-child(3) {
+   left: 44%;
+   top: 75%;
+   border-right: 10px solid var(--dark-green);
+}
+
+
+.leaves > div {
+   position: absolute;
+   height: 60px;
+   width: 35px;
+}
+
+.leaves > div:first-child {
+   top: 58%;
+   left: 28%;
+   border-radius: 0 30px 0 30px;
+   transform: rotate(-20deg);
+   transition: background 1s, box-shadow 1s 1s;
+   background: var(--dark-green);
+   box-shadow: inset 5px 5px var(--light-green);
+}
+
+
+.leaves > div:nth-child(2) {
+   border-radius: 30px 0 30px 0;
+   transform: rotate(20deg);
+   top: 45%;
+   right: 28%;
+   transition: background 1s, box-shadow 1s 1s;
+   background: var(--dark-green);
+   box-shadow: inset -5px 5px var(--light-green);
+}
+
+.petals > div:first-child {
+   top: 15%;
+   left: 50%;
+   margin-left: -25px;
+   position: absolute;
+   height: 100px;
+   width: 50px;
+   border-radius: 10px 10px 20px 20px;
+   transition: background 1s;
+   background: var(--light-pink);
+}
+
+.petals > div:not(:first-child) {
+   position: absolute;
+   height: 100px;
+   width: 40px;
+}
+
+.petals > div:nth-child(2) {
+   top: 15%;
+   left: 30%;
+   transform-origin: bottom right;
+   border-radius: 0 35px 0 35px;
+   transition: background 1s, transform 1s 1s;
+   background: var(--medium-pink);
+   transform: rotate(-6deg);
+}
+
+.petals > div:nth-child(3) {
+   top: 15%;
+   right: 30%;
+   transform-origin: bottom left;
+   border-radius: 35px 0 35px 0;
+   transition: background 1s, transform 1s 1s;
+   background: var(--medium-pink);
+   transform: rotate(6deg);
+}
+
+.petals > div:nth-child(4) {
+   top: 15%;
+   left: 30%;
+   transform: rotate(-18deg);
+   transform-origin: bottom right;
+   border-radius: 0 35px 0 35px;
+   transition: background 1s, transform 1s 1s;
+   background: var(--dark-pink);
+}
+
+.petals > div:nth-child(5) {
+   top: 15%;
+   right: 30%;
+   transform: rotate(18deg);
+   transform-origin: bottom left;
+   border-radius: 35px 0 35px 0;
+   transition: background 1s, transform 1s 1s;
+   background: var(--dark-pink);
+}
+
+
+.dead-petals > div:first-child {
+   animation: rotate-petal 6s linear infinite;
+   left: 35%;
+   background: var(--medium-pink);
+}
+
+.dead-petals > div:nth-child(2) {
+   animation: rotate-petal 8s linear infinite;
+   left: 50%;
+   background: var(--dark-pink);
+}
+
+.glass {
+   position: absolute;
+   transition: opacity 1s;
+   opacity: 0;
+   height: var(--rose-height);
+   width: var(--rose-width);
+   padding: 0 40px;
+   background: rgba(255, 250, 250, 0);
+   box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.2);
+   backdrop-filter: blur(2.8px);
+   -webkit-backdrop-filter: blur(2.8px);
+   border-bottom: 0;
+   border-radius: 5px;
+   border-top-right-radius: 40%;
+   border-top-left-radius: 40%;
+   opacity: 1;
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+*Nasıl olmuş?
+
+
+
+
+
+
+
+
+
+*/
+
+         `;
+
+         let template = `
+\<style id="style-tag"></style>
+  <div class="container">
+      <div class="glass"></div>
+      <div class="rose">
+          <div class="stem"></div>
+          <div class="thorns">
+              <div></div>
+              <div></div>
+              <div></div>
+          </div>
+          <div class="leaves">
+              <div></div>
+              <div></div>
+          </div>
+          <div class="dead-petals">
+              <div></div>
+              <div></div>
+          </div>
+          <div class="petals">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+          </div>
+      </div>
+  </div>
+
+      
+   <pre id="style-text"></pre>\
+         `
+
+         const getStyleHtml = function () {
+             return document.getElementById('style-text').innerHTML;
+         };
+
+         let openComment = false;
+
+         const writeStyleChar = function (which) {
+             if (which === '/' && !openComment) {
+                 openComment = true;
+                 styles = getStyleHtml() + which;
+             } else if (which === '/' && openComment) {
+                 openComment = false;
+                 styles = getStyleHtml().replace(
+                     /(\/[^\/]*\*)$/,
+                     '<em class="comment">$1/</em>',
+                 );
+             } else if (which === ':') {
+                 styles = getStyleHtml().replace(
+                     /([a-zA-Z- ^\n]*)$/,
+                     '<em class="key">$1</em>:',
+                 );
+             } else if (which === ';') {
+                 styles = getStyleHtml().replace(
+                     /([^:]*)$/,
+                     '<em class="value">$1</em>;',
+                 );
+             } else if (which === '{') {
+                 styles = getStyleHtml().replace(
+                     /(.*)$/,
+                     '<em class="selector">$1</em>{',
+                 );
+             } else {
+                 styles = getStyleHtml() + which;
+             }
+             document.getElementById('style-text').innerHTML = styles;
+             document.getElementById('style-tag').insertAdjacentHTML('beforeend', which);
+         };
+
+         const writeStyles = function (message, index, interval) {
+             if (index < message.length) {
+                 const pre = document.getElementById('style-text');
+                 pre.scrollTop = pre.scrollHeight;
+                 writeStyleChar(message[index++]);
+                 return setTimeout(
+                     () => writeStyles(message, index, interval),
+                     interval,
+                 );
+             }
+         };
+
+         const writeAllStyles = function() {
+             document.getElementById('style-text').innerHTML = styles;
+             document.getElementById('style-tag').insertAdjacentHTML('beforeend', styles);
+         }
+
+         document.body.insertAdjacentHTML('beforeend', template);
+         writeStyles(styles, 0, 24);
+         /*          writeAllStyles(); */
+         const writeFinalMessage = function () {
+            document.getElementById('final-message').style.display = 'block';
+        };
+
+        // Animasyon süresini hesapla ve o süre sonunda final mesajını göster
+        let animationDuration = 105000; // Animasyon süresi milisaniye olarak (örnek: 5000ms = 5 saniye)
+        setTimeout(writeFinalMessage, animationDuration);
+        </script>
+    </body>
+</html>
